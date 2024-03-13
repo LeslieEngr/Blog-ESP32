@@ -1,5 +1,7 @@
 # Blog-ESP32
-# A. ESP-IDF
+# A. Tại sao lựa chọn ESP32 ESPIDF
+
+**************************************************************************************************************************************************
 
 ## I. Tại sao lựa chọn ESP32: 
 
@@ -7,6 +9,8 @@
 -   Flash và SRAM dồi dào
 -   Hỗ trợ I2C, SPI, UART, ADC, DAC, RTC, USB
 -   Kích thước nhỏ gọn
+
+**************************************************************************************************************************************************
 
 ## II. Các ví dụ giúp hiểu rõ
 
@@ -29,6 +33,9 @@
 -   ESP HID Host: ESP HID Host là một ứng dụng cho phép ESP32 kết nối và tương tác với các thiết bị HID khác như bàn phím hoặc chuột. Nó cho phép ESP32 nhận dữ liệu từ các thiết bị HID và điều khiển chúng.
 -   HCI (Host Controller Interface): HCI là một giao diện tiêu chuẩn giữa phần cứng Bluetooth và lớp giao thức Bluetooth trên một thiết bị. Nó đóng vai trò quan trọng trong việc truyền thông giữa bộ điều khiển Bluetooth và các ứng dụng trên thiết bị.
 -   NimBLE: NimBLE là một giao diện Bluetooth nguồn mở và dễ sử dụng được phát triển bởi Apache Mynewt. Nó cung cấp một stack Bluetooth Low Energy (BLE) nhẹ và hiệu quả cho các ứng dụng nhúng. NimBLE thường được sử dụng trong các ứng dụng IoT và thiết bị di động.
+
+**************************************************************************************************************************************************
+
 ## III. Ngoại vi
 
 ### 1. Digital
@@ -57,8 +64,12 @@ Touch Sensor:
 Ví dụ: Sử dụng các nút cảm ứng để điều khiển các chức năng trên một thiết bị điều khiển từ xa.
 #### Bảng Peripheral Pin Configurations - 41-45 : [Peripheral_Pin](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf)
 #### Bảng IO_MUX - 63 - [Peripheral_Pin](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf)
-## IV. Cách thức hoạt động
-### 1. Luồng khi khởi động
+
+# B. Kiến thức Base về ESP32
+
+**************************************************************************************************************************************************
+
+## 1. Luồng khi khởi động
 
 <div style="text-align:center">
 <img src="image.png" alt="Image" width="700" />
@@ -70,10 +81,25 @@ Ví dụ: Sử dụng các nút cảm ứng để điều khiển các chức n�
 
 **************************************************************************************************************************************************
 
+## 2. Kconfig.projbuild (idf.py menuconfig)
+![image](https://github.com/LeslieEngr/Blog-ESP32/assets/128287548/0a95e1d1-bf64-4037-a960-54761df8a8c2)
 
+-  Có thể tạo Custom config trong file Kconfig.projbuild. 
+### 1.  Định nghĩa Menu:
+-  Sử dụng từ khóa menu để bắt đầu một nhóm cấu hình, kèm theo tên menu được đặt trong dấu ngoặc kép.
+### 2.  Định nghĩa Config:
+-  Mỗi cấu hình (config) đều bắt đầu bằng từ khóa config theo sau là tên cấu hình.
+-  Các thuộc tính của cấu hình được định nghĩa dưới dạng từ khóa theo sau là giá trị của chúng. Các từ khóa thường gặp bao gồm bool, default, depends on, và help.
+### 3.  Đặt Giá Trị Mặc Định:
+-  default được sử dụng để đặt giá trị mặc định cho cấu hình.
+### 4.  Đặt Điều Kiện Phụ Thuộc:
+-  depends on được sử dụng để đặt điều kiện phụ thuộc cho cấu hình, chỉ khi điều kiện này được thoả mãn thì cấu hình mới có hiệu lực.
+### 5.  Thêm Mô Tả:
+-  help bắt đầu một đoạn mô tả cho cấu hình, giúp người dùng hiểu rõ hơn về mục đích và cách sử dụng của cấu hình đó.
+### 6.  Sử dụng Submenus:
+-  Các nhóm cấu hình con có thể được tạo ra bằng cách sử dụng menu, giúp tổ chức và nhóm các cấu hình liên quan lại với nhau.
 
-
-
+**************************************************************************************************************************************************
 
 
 
